@@ -1,14 +1,14 @@
-#include <stdio.h>
+#include <stdio.h>                          //Header File
 
-#define SIZE 20
+#define SIZE 20                             //defines the size of the heap
 
-typedef struct {
+typedef struct {                            //defining minHeap
     int node[SIZE+1];
     int currSize;
 } minHeap;
 
-void swap(minHeap *heap, int a, int b);
-int parent(int i);
+void swap(minHeap *heap, int a, int b);     //Don't know what these are?
+int parent(int i);                          //Watch --> https://youtu.be/fPGp0FpWit8?si=yvIgOAa3TpCkqCG4
 int left_child(int i);
 void init(minHeap *heap);
 void bubble_up(minHeap *heap, int i);
@@ -20,26 +20,26 @@ void printArray(int arr[], int n);
 
 
 
-void heapsort(int arr[], int n)
+void heapsort(int arr[], int n)         //Takes argument the array to be sorted and the length of the array.
 {
-    minHeap heap;
+    minHeap heap;                       //Creates a new minHeap called heap
 
-    heapify(&heap, arr, n);
+    heapify(&heap, arr, n);             //Converts our array to min-heap
 
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i < n; i++)          //Iterate over the min-heap
     {
-        arr[i] = extract_min(&heap);
+        arr[i] = extract_min(&heap);    //Updates the array with the minimum element supplied by min-heap
     }
 }
 
 int main()
 {
-    int arr[] = {6, 4, 2, 10, 22, 0, 3, 1};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = {6, 4, 2, 10, 22, 0, 3, 1};     //An array to work with
+    int n = sizeof(arr) / sizeof(arr[0]);       //Size of the array
 
-    printArray(arr, n);
-    heapsort(arr, n);
-    printArray(arr, n);
+    printArray(arr, n);                         //Prints the unsorted array
+    heapsort(arr, n);                           //Apply heap sort to our unsorted array
+    printArray(arr, n);                         //Prints the sorted arary
 }
 
 
